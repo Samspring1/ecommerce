@@ -1,0 +1,305 @@
+{
+  "info": {
+    "_postman_id": "a1c18e5e-e025-4be7-bcdd-8c65e0882958",
+    "name": "ecommerce",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51262581",
+    "_collection_link": "https://go.postman.co/collection/51262581-a1c18e5e-e025-4be7-bcdd-8c65e0882958?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register a User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"admin_user\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin123\",\r\n    \"firstName\": \"Admin\",\r\n    \"lastName\": \"User\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register a regular User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"customer1\",\r\n    \"email\": \"customer1@gmail.com\",\r\n    \"password\": \"password111\",\r\n    \"firstName\": \"Jane\",\r\n    \"lastName\": \"Scott\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"customer1\",\r\n    \"password\": \"password111\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/products/search?keyword=laptop",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "products",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "keyword",
+              "value": "laptop"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Products",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {}
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl91c2VyIiwiaWF0IjoxNzc0MDIxMTk0LCJleHAiOjE3NzQxMDc1OTR9.apMm887buel5Dw8OTn7aVZyYOVnevna7Knr1ch_8A329Va4oJjhuR6DCM-yWqZYM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Wireless Mouse\",\r\n    \"description\": \"Easy Navigation, 20hr battery life\",\r\n    \"price\": 24.99,\r\n    \"stockQuantity\": 50,\r\n    \"category\": \"Accessories\",\r\n    \"imageUrl\": \"https://images.unsplash.com/photo-1505740420928-5e560c06d30e\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add To Cart",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl91c2VyIiwiaWF0IjoxNzc0MDIxMTk0LCJleHAiOjE3NzQxMDc1OTR9.apMm887buel5Dw8OTn7aVZyYOVnevna7Knr1ch_8A329Va4oJjhuR6DCM-yWqZYM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/cart/add/1?quantity=2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "cart",
+            "add",
+            "1"
+          ],
+          "query": [
+            {
+              "key": "quantity",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View Cart",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl91c2VyIiwiaWF0IjoxNzc0MDIxMTk0LCJleHAiOjE3NzQxMDc1OTR9.apMm887buel5Dw8OTn7aVZyYOVnevna7Knr1ch_8A329Va4oJjhuR6DCM-yWqZYM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/cart",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Checkout",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbl91c2VyIiwiaWF0IjoxNzc0MDIxMTk0LCJleHAiOjE3NzQxMDc1OTR9.apMm887buel5Dw8OTn7aVZyYOVnevna7Knr1ch_8A329Va4oJjhuR6DCM-yWqZYM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/cart/checkout",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "cart",
+            "checkout"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "\"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJicnljZSIsImlhdCI6MTc3NDAxNzM5MSwiZXhwIjoxNzc0MTAzNzkxfQ.Bi_nJCLccrJLm_0jpqyVqDcgXam7QoMlK1Ny1sbZREqEt2A97Snb_uVuL2Z1pUYT\",",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
